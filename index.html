@@ -1,0 +1,28 @@
+<html>
+
+<body>
+<input id='stext' type='text' style='width:100%; height:30%;font-size:50px' value='输入搜索关键词' onkeydown='calAge(event)' onfocus='selectAll()'/>
+<input id='sbutton' type='button' value='搜索' style='width:50%; height:30%;float:right;font-size:35px' />
+</body>
+<script>
+	document.getElementById("stext").focus();
+	document.getElementById("stext").select();
+	
+	function search() {
+		var url = 'https://www.baidu.com/s?wd=' + document.getElementById("stext").value;
+		window.open(url, '_blank').location;
+	}
+	document.getElementById("sbutton").onclick = search;
+
+	function selectAll(){
+		document.getElementById("stext").select();
+	}
+
+	function calAge(e) {
+        var evt = window.event || e;
+        if (evt.keyCode == 13) {
+			search();
+        }
+    }
+</script>
+</html>
